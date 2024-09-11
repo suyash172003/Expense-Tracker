@@ -1,7 +1,6 @@
 package com.example.Expense.Model;
 
 import java.time.LocalDate;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
