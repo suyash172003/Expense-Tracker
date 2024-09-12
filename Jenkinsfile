@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        maven 'Maven 3.9' // Name must match the Maven installation name in Jenkins configuration
+    }
 
     stages {
         stage('Cleanup') {
