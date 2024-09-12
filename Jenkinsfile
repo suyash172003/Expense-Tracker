@@ -7,8 +7,11 @@ pipeline {
     stages {
         stage('Cleanup') {
             steps {
-                // Remove the directory if it exists
-                bat 'rd /s /q Expense-Tracker || echo "Directory not found"'
+               if exist "C:\ProgramData\Jenkins\.jenkins\workspace\Expense Tracker\Expense-Tracker" (
+                    rd /s /q "C:\ProgramData\Jenkins\.jenkins\workspace\Expense Tracker\Expense-Tracker"
+                ) else (
+                    echo "Directory not found"
+                )
             }
         }
 
