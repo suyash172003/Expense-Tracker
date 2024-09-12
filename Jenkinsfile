@@ -18,10 +18,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Change directory to the cloned repository and build
-                dir('Expense-Tracker') {
                     bat 'mvn clean install'
-                }
             }
         }
     }
