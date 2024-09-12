@@ -5,6 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Check out the code from GitHub
+                rd /s /q Expense-Tracker
                 bat 'git clone https://github.com/suyash172003/Expense-Tracker.git'
             }
         }
