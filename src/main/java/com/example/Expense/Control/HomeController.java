@@ -15,22 +15,21 @@ public class HomeController {
 
 	@Autowired
 	ExpenseRepository expense;
-	
-    @GetMapping("/about")
-    public String about(Model model) {
-    	List<Expense> exp=expense.findAll();
-    	model.addAttribute("elist",exp);
-        return "about";
-    }
-    
-    @GetMapping("/register")
-    public String reister() {
-        return "register";
-    }
-    
-  
-    @GetMapping("/login")
-    public String expenseLogin() {
-        return "login";
-    }
+
+	@GetMapping("/about")
+	public String about(Model model) {
+		List<Expense> exp = expense.findAll();
+		model.addAttribute("elist", exp);
+		return "about";
+	}
+
+	@GetMapping("/register")
+	public String reister() {
+		return "register";
+	}
+
+	@GetMapping("/login")
+	public String expenseLogin() {
+		return "login";
+	}
 }
