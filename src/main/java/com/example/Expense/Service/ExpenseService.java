@@ -28,7 +28,7 @@ public class ExpenseService {
 	ExpenseRepository expense;
 
 	@GetMapping
-	@Operation(description = "Retrieve all the Expense object")
+	@Operation(description = "Retrieve all the Expense by object")
 	public List<Expense> getAllExpense() {
 		return expense.findAll();
 	}
