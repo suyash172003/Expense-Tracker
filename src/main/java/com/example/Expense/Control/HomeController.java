@@ -32,4 +32,10 @@ public class HomeController {
 	public String expenseLogin() {
 		return "login";
 	}
+	
+	@GetMapping("/add")
+	public String addExpense() {
+		return "add";
+	}
+	
 }
