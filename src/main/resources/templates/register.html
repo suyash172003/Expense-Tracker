@@ -82,7 +82,6 @@ button.btn:hover {
 	border-color: #007bff;
 }
 
-/* Media Queries for responsive design */
 @media ( max-width : 768px) {
 	.navbar-nav {
 		text-align: center;
@@ -118,24 +117,24 @@ button.btn:hover {
 	<div align="center">
 		<h1>Registration Form</h1>
 	</div>
-	<form>
+	<form action="#" th:action="@{/register}" method="post" th:object=${register}>
 		<div class="form-group">
-			<label for="name">First Name</label> <input type="text" id="name"
-				placeholder="First Name" class="form-control" required>
+			<label for="firstName">First Name</label> <input type="text" id="firstName"
+				placeholder="First Name" class="form-control" th:field="*{firstName}" required>
 		</div>
 		<div class="form-group">
-			<label for="name">Last Name</label> <input type="text" id="name"
-				placeholder="Last Name" class="form-control" required>
+			<label for="lastName">Last Name</label> <input type="text" id="lastName"
+				placeholder="Last Name" class="form-control" th:field="*{lastName}" required>
 		</div>
 
 		<div class="form-group">
 			<label for="email">Email</label> <input type="email" id="email"
-				placeholder="user@gmail.com" class="form-control" required>
+				placeholder="user@gmail.com" class="form-control" th:field="*{email}" required>
 		</div>
 
 		<div class="form-group">
 			<label for="password">Password</label> <input type="password"
-				id="password" placeholder="Password" class="form-control" required>
+				id="password" placeholder="Password" class="form-control" th:field="*{password}" required>
 		</div>
 		<button title="Submit" class="btn btn-outline-primary">Submit</button>
 	</form>

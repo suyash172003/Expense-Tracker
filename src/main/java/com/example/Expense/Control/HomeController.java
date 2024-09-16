@@ -22,16 +22,6 @@ public class HomeController {
 		model.addAttribute("elist", exp);
 		return "about";
 	}
-
-	@GetMapping("/register")
-	public String reister() {
-		return "register";
-	}
-
-	@GetMapping("/login")
-	public String expenseLogin() {
-		return "login";
-	}
 	
 	@GetMapping("/add")
 	public String addExpense() {

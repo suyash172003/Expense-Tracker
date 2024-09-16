@@ -122,18 +122,18 @@ label {
 	<div align="center">
 		<h1>Login Form</h1>
 	</div>
-	<form>
+	<form action="#" th:action="@{/login}" th:object=${login} method="post">
 		<div class="form-group">
 			<label for="email">Email</label> <input type="email" id="email"
-				placeholder="user@gmail.com" class="form-control" required>
+				placeholder="user@gmail.com" class="form-control" th:field="*{email}" required>
 		</div>
 
 		<div class="form-group">
 			<label for="password">Password</label> <input type="password"
-				id="password" placeholder="Password" class="form-control" required>
+				id="password" placeholder="Password" class="form-control" th:field="*{password}" required>
 		</div>
 		<button title="Submit" class="btn btn-outline-primary">Login</button>
-		<label for="user">New User</label><a href="#" th:href="@{/register}">Register</a>
+		<label for="user">New User</label>
 	</form>
 </body>
 </html>
