@@ -10,18 +10,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import com.example.Expense.Model.Expense;
 import com.example.Expense.Repository.ExpenseRepository;
 
 @Controller
 public class HomeController {
 
+	
 	@Autowired
 	ExpenseRepository expenseRepo;
 
+	@GetMapping("/expense")
+	public String expense() {
+		return "expense";
+	}
+	
 	@GetMapping("/about")
 	public String about(Model model) {
 		List<Expense> exp = expenseRepo.findAll();
@@ -50,8 +53,10 @@ public class HomeController {
 	}
 	
 	@GetMapping("/update/{id}")
-	public String updateGetExpense(Model model) {
-		model.addAttribute("expense", new Expense());
+	public String updateGetExpense(@PathVariable long id,Model model) {
+		Optional<Expense> obj=expenseRepo.findById(id);
+		Expense temp=obj.get();
+		model.addAttribute("expense", temp);
 		return "update";
 	}
 	

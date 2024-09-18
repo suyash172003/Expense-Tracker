@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a th:href="@{/login}">Log in</a>
+        <a th:href="@{/register}">Sign up</a>
+    </nav>
+    
+    
+    <section id="home" class="bg-image">
+        <div>
+            <h1>Welcome to Expense Tracker</h1>
+            <p>Take Control of Your Finances Today!</p>
+        </div>
+    </section>
+    
+    
+     <section id="about" class="content-section py-5">
+        <div class="container">
+            <h1 class="text-center mb-5">About</h1>
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                   <img src="images/about.jpg" alt="About Us" class="img-fluid">
+                </div>
+                <div class="col-md-8">
+                    <h2>Why Choose Us?</h2>
+                    <ul class="list-unstyled">
+                        <li><strong>Quick & Simple Expense Logging:</strong> Add your expenses in seconds. Categorize your transactions and stay on top of where your money is going.</li>
+                        <li><strong>Detailed Spending Insights:</strong> View detailed reports and beautiful charts that help you analyze your spending habits and make informed financial decisions.</li>
+                        <li><strong>Custom Budgets & Alerts:</strong> Set custom budgets for different categories and get notified when you're nearing your limits.</li>
+                        <li><strong>Access Anytime, Anywhere:</strong> Track your expenses seamlessly from your phone, tablet, or computer.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section id="services" class="content-section py-5">
+        <div class="container">
+            <h1 class="text-center mb-5">Services</h1>
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <img src="images/about.jpg" alt="Expense Tracking" class="img-fluid mb-3">
+                    <h3>Expense Tracking</h3>
+                    <a th:href="@{/about}"></a>
+                    <p>Track all your expenses and stay on top of your financial health.</p>
+                </div>
+
+                
+                <div class="col-md-4 mb-4">
+                    <img src="images/services.jpg" alt="Budget Analysis" class="img-fluid mb-3">
+                    <h3>Budget Analysis</h3>
+                    <p>Create budgets and analyze your spending to reach your goals.</p>
+                </div>
+
+                
+                <div class="col-md-4 mb-4">
+                    <img src="images/services.jpg" alt="Financial Insights & Reports" class="img-fluid mb-3">
+                    <h3>Financial Insights & Reports</h3>
+                    <p>Get detailed insights and reports to understand your financial habits.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+ 
+    
+    
+    <div th:insert="fragments/footer :: footer"></div>
+
+</body>
+</html>

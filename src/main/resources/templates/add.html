@@ -3,11 +3,23 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Expenses</title>
-<link
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	rel="stylesheet">
-
+<link href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 <style>
+		html, body {
+            height: 100%; 
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            flex: 1; 
+        }
+        footer {
+            width: 100%;
+            bottom: 0;
+        }
+  
 .form {
 	max-width: 400px;
 	margin: 0 auto;
@@ -61,26 +73,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Expense Tracker</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="#">Home
-						<span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Disabled</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+	<div th:insert="fragments/navbar :: navbar"></div>
 
 	<form class="form" th:action="@{/add}" th:object=${expense} method="post">
 		<label>Amount</label> 
@@ -94,5 +87,7 @@
 		
 		<button title="Submit" class="btn btn-outline-primary">Submit</button>
 	</form>
+	
+	<div th:insert="fragments/footer :: footer"></div>
 </body>
 </html>
