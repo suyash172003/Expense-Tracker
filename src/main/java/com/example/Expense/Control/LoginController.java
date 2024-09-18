@@ -24,6 +24,6 @@ public class LoginController {
 	@PostMapping("/login")
 	public String loginPut(@ModelAttribute Login login) {
 		loginRepo.save(login);
-		return "about";
+		return "redirect:/about";
 	}
 }

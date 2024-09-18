@@ -23,7 +23,7 @@ public class RegisterController {
 	@PostMapping("/register")
 	public String postRegister(@ModelAttribute Register register) {
 		registering.save(register);
-		return "login";
+		return "redirect:/login";
 	}
 	
 }

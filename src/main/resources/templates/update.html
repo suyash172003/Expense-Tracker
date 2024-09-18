@@ -82,15 +82,15 @@
 		</div>
 	</nav>
 
-	<form class="form" th:action="@{/add}" th:object=${expense} method="post">
+	<form class="form" th:action="@{/update/{id}(id=${expense.id})}" th:object="${expense}" method="post">
 		<label>Amount</label> 
-		<input type="number" name="Amount" th:field=*{amount}></input> 
+		<input type="number" name="amount" th:field=*{amount}></input> 
 		<label>Category</label>
-		<input type="text" name="Category" th:field=*{category}></input> 
+		<input type="text" name="category" th:field=*{category}></input> 
 		<label>Date</label> 
-		<input type="date" name="Date" th:field=*{date}></input> 
+		<input type="date" name="date" th:field=*{date}></input> 
 		<label>Description</label> 
-		<input type="text" name="Description" th:field=*{description}></input>
+		<input type="text" name="description" th:field=*{description}></input>
 		
 		<button title="Submit" class="btn btn-outline-primary">Submit</button>
 	</form>
