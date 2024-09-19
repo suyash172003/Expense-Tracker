@@ -1,0 +1,80 @@
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8); 
+    padding: 10px 15px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row; 
+    gap: 15px; 
+}
+
+.navbar-nav .nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff; 
+}
+
+.navbar-collapse {
+    justify-content: space-between; 
+}
+
+.form {
+    max-width: 500px; 
+    margin: 30px auto; 
+    padding: 25px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+.form input[type="text"], 
+.form input[type="number"], 
+.form input[type="date"], 
+.form button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form button[type="submit"] {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 15px;
+	background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
