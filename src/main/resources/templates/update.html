@@ -6,7 +6,17 @@
 <link href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 <link th:href="@{/css/update.css}" rel="stylesheet">
 <body>
-    <div th:insert="fragments/navbar :: navbar"></div>
+    <nav class="navbar">
+        <h1>Expense Tracker</h1>
+        <div class="navbar-links">
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a href="#">Categories</a>
+            <a href="#">Support</a>
+            <a href="#">Reports</a>
+            <a th:href="@{/expense}">Logout</a>
+        </div>
+    </nav>
+    <h2>Update Your Expense!</h2>
     <div class="content">
         <form class="form" th:action="@{/update/{id}(id=${expense.id})}" th:object="${expense}" method="post">
             <label for="amount">Amount</label> 
@@ -24,6 +34,8 @@
             <input type="submit" value="Submit">
         </form>
     </div>
-    <div th:insert="fragments/footer :: footer"></div>
+     <footer>
+    	<div class="footer">Copyright @2024</div>
+    </footer>
 </body>
 </html>

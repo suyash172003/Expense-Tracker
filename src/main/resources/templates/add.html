@@ -8,8 +8,17 @@
 </head>
 <body>
 
-    <div th:insert="fragments/navbar :: navbar"></div>
-
+    <nav class="navbar">
+        <h1>Expense Tracker</h1>
+        <div class="navbar-links">
+            <a th:href="@{/dashboard}">Dashboard</a>
+            <a href="#">Categories</a>
+            <a href="#">Support</a>
+            <a href="#">Reports</a>
+            <a th:href="@{/expense}">Logout</a>
+        </div>
+    </nav>
+    <h2>Add Your Expense!</h2>
     <form class="form" th:action="@{/add}" th:object="${expense}" method="post">
         <label>Amount</label> 
         <input type="number" name="Amount" th:field="*{amount}"></input> 
@@ -23,6 +32,8 @@
         <button title="Submit" class="btn btn-outline-primary">Submit</button>
     </form>
     
-    <div th:insert="fragments/footer :: footer"></div>
+    <footer>
+    	<div class="footer">Copyright @2024</div>
+    </footer>
 </body>
 </html>

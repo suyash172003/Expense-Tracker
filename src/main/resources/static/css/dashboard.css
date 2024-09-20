@@ -9,7 +9,7 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100vh; /* Full viewport height */
 }
 
 .navbar {
@@ -41,59 +41,38 @@ body {
     color: #ffeb3b;
 }
 
-h2 {
-    text-align: center;
-    margin-top: 20px;
+.content {
+    padding: 20px;
+    flex: 1; /* Take up remaining space */
+}
+
+.heading h2 {
     color: #333;
 }
 
-.form {
-    flex: 1;
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
+.table {
     background-color: #ffffff;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-.form input:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-.btn {
+.table th {
     background-color: #007bff;
     color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.btn:hover {
-    background-color: #0056b3;
+.table td, .table th {
+    vertical-align: middle;
 }
 
-.footer {
-    text-align: center;
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+footer {
     background-color: #343a40;
     color: white;
+    text-align: center;
     padding: 10px 0;
 }

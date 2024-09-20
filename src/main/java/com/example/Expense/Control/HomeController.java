@@ -25,12 +25,22 @@ public class HomeController {
 		return "expense";
 	}
 	
-	@GetMapping("/about")
+	@GetMapping("/logout")
+	public String logout() {
+		return "redirect:/expense";
+	}
+	
+	@GetMapping("/profile")
+	public String profile() {
+		return "profile";
+	}
+	
+	@GetMapping("/dashboard")
 	public String about(Model model) {
 		List<Expense> exp = expenseRepo.findAll();
 		System.out.print(exp);
 		model.addAttribute("elist", exp);
-		return "about";
+		return "dashboard";
 	}
 	
 	@GetMapping("/add")
@@ -42,14 +52,14 @@ public class HomeController {
 	@PostMapping("/add")
 	public String addExpense(@ModelAttribute Expense expense) {
 		expenseRepo.save(expense);
-		return "redirect:/about";
+		return "redirect:/dashboard";
 	}
 	
 
 	@PostMapping("/delete/{id}")
 	public String deleteExpense(@PathVariable Long id) {
 		expenseRepo.deleteById(id);
-		return "redirect:/about";
+		return "redirect:/dashboard";
 	}
 	
 	@GetMapping("/update/{id}")
@@ -69,6 +79,6 @@ public class HomeController {
 		temp.setDate(expense.getDate());
 		temp.setDescription(expense.getDescription()); 
 	    expenseRepo.save(temp);
-	    return "redirect:/about";
+	    return "redirect:/dashboard";
 	}
 }
