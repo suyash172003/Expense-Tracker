@@ -1,222 +1,265 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
-    <link href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Expense Tracker</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Expense Tracker</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#FAQ">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/login}">Log in</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/register}">Sign up</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+	<header>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#">Expense Tracker</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+						<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+						<li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+						<li class="nav-item"><a class="nav-link" href="#FAQ">FAQ</a></li>
+						<li class="nav-item"><a class="nav-link" th:href="@{/login}">Log
+								in</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/register}">Sign up</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
 
-    <!-- Home Section -->
-    <section id="home" class="bg-image d-flex align-items-center justify-content-center text-white text-center">
-        <div>
-            <h1>Welcome to Expense Tracker</h1>
-            <p>Take Control of Your Finances Today!</p>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="content-section py-5">
-        <div class="container">
-            <h1 class="text-center mb-5">About</h1>
-            <div class="row align-items-center">
-                <div class="col-md-4">
-                    <img src="images/about.jpg" alt="About Us" class="img-fluid rounded shadow">
-                </div>
-                <div class="col-md-8">
-                    <h2>Why Choose Us?</h2>
-                    <ul class="list-unstyled">
-                        <li><strong>Quick & Simple Expense Logging:</strong> Add your expenses in seconds.</li>
-                        <li><strong>Detailed Spending Insights:</strong> View detailed reports and beautiful charts.</li>
-                        <li><strong>Custom Budgets & Alerts:</strong> Set custom budgets and receive alerts.</li>
-                        <li><strong>Access Anytime, Anywhere:</strong> Track your expenses from any device.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+	<!-- Home Section -->
+	<section id="home"
+		class="bg-image d-flex align-items-center justify-content-center text-white text-center"
+		style="height: 100vh; background: url('../images/background2.jpg') no-repeat center center/cover;">
+		<div class="overlay"></div>
+		<div>
+			<h1
+				style="font-size: 4rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);">Expense
+				Tracker</h1>
+			<p
+				style="font-size: 1.5rem; margin-bottom: 30px; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);">Take
+				Control of Your Finances Today!</p>
+			<a href="#about" class="btn btn-primary btn-lg">Learn More</a>
+		</div>
+	</section>
 
-    <!-- Services Section -->
-    <section id="services" class="content-section py-5 bg-light">
-        <div class="container">
-            <h1 class="text-center mb-5">Services</h1>
-            <div class="row text-center">
-                <div class="col-md-4 mb-4">
-                    <img src="images/services.jpg" alt="Expense Tracking" class="img-fluid rounded shadow mb-3">
-                    <h3>Expense Tracking</h3>
-                    <p>Track all your expenses and stay on top of your financial health.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="images/services.jpg" alt="Budget Analysis" class="img-fluid rounded shadow mb-3">
-                    <h3>Budget Analysis</h3>
-                    <p>Create budgets and analyze your spending to reach your goals.</p>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <img src="images/services.jpg" alt="Financial Insights & Reports" class="img-fluid rounded shadow mb-3">
-                    <h3>Financial Insights & Reports</h3>
-                    <p>Get detailed insights and reports to understand your financial habits.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+	<!-- About Section -->
+	<section id="about" class="content-section">
+		<h2 class="section-title">Our Story</h2>
+		<p class="section-description">
+			At <strong>Expense Tracker</strong>, our mission is to empower
+			individuals and families to take control of their finances. Founded
+			in <em>2023</em>, we started with a simple idea: to make expense
+			management easy and accessible for everyone.
+		</p>
+		<div class="hero-image">
+			<img src="images/background1.jpg" alt="Finance Management"
+				class="img-fluid">
+		</div>
+		<h3 class="sub-title">What We Do</h3>
+		<p class="section-description">We specialize in providing a
+			user-friendly platform that helps you track your expenses, set
+			budgets, and gain insights into your spending habits.</p>
+		<h4 class="sub-title">Our Impact</h4>
+		<ul class="impact-list">
+			<li><strong>10,000+</strong> users and counting!</li>
+			<li><strong>95%</strong> user satisfaction rate.</li>
+			<li><strong>500+</strong> budgeting tips shared.</li>
+		</ul>
+	</section>
 
-    <!-- FAQ Section -->
-    <section id="FAQ" class="content-section py-5">
-        <div class="container">
-            <h1 class="text-center mb-5">FAQ</h1>
-            <div class="accordion" id="faqAccordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            What is an Expense Tracker?
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            An Expense Tracker is a tool that helps you keep track of your daily, weekly, or monthly expenses.
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            How do I sign up for an account?
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            To sign up, click on the "Sign Up" button in the top-right corner of the page.
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Is my financial information secure?
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            Yes, we prioritize the security of your financial data using industry-standard encryption.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="text-center text-lg-start bg-dark text-light">
-        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-            <div class="me-5 d-none d-lg-block">
-                <span>Get connected with us on social networks:</span>
-            </div>
-            <div>
-                <a href="#" class="me-4 text-light">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="me-4 text-light">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="me-4 text-light">
-                    <i class="fab fa-google"></i>
-                </a>
-                <a href="#" class="me-4 text-light">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="me-4 text-light">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="#" class="me-4 text-light">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-        </section>
+	<!-- User Reviews Section -->
+	<section id="user-reviews" class="content-section">
+		<h3 class="section-title text-center mb-4">What Users Say</h3>
+		<div id="reviewsCarousel" class="carousel slide"
+			data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<blockquote class="testimonial">
+						<p>
+							"Expense Tracker changed the way I manage my finances! It's so
+							easy to use." - <em>Jane D.</em>
+						</p>
+					</blockquote>
+				</div>
+				<div class="carousel-item">
+					<blockquote class="testimonial">
+						<p>
+							"I love how simple and intuitive this app is. It really helps me
+							stay on track." - <em>John S.</em>
+						</p>
+					</blockquote>
+				</div>
+				<div class="carousel-item">
+					<blockquote class="testimonial">
+						<p>
+							"Thanks to Expense Tracker, I've saved more money this year than
+							ever before!" - <em>Sarah K.</em>
+						</p>
+					</blockquote>
+				</div>
+			</div>
+			<!-- Carousel Controls -->
+			<a class="carousel-control-prev" href="#reviewsCarousel"
+				role="button" data-bs-slide="prev"> <span
+				class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+				class="visually-hidden">Previous</span>
+			</a> <a class="carousel-control-next" href="#reviewsCarousel"
+				role="button" data-bs-slide="next"> <span
+				class="carousel-control-next-icon" aria-hidden="true"></span> <span
+				class="visually-hidden">Next</span>
+			</a>
+		</div>
+	</section>
 
-        <section class="content-section">
-            <div class="container text-center text-md-start">
-                <div class="row mt-3">
-                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            <i class="fas fa-gem me-3"></i>Expense Tracker
-                        </h6>
-                        <p>
-                            Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            Products
-                        </h6>
-                        <p>
-                            <a href="#" class="text-light">MDBootstrap</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-light">MDWordPress</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-light">BrandFlow</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-light">Bootstrap Angular</a>
-                        </p>
-                    </div>
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            Useful links
-                        </h6>
-                        <p>
-                            <a href="#" class="text-light">Pricing</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-light">Settings</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-light">Orders</a>
-                        </p>
-                        <p>
-                            <a href="#" class="text-light">Help</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="p-4 border-top">
-            <div class="container text-center">
-                <div class="text-center p-3">
-                    © 2024 Copyright:
-                    <a class="text-light" href="#">ExpenseTracker.com</a>
-                </div>
-            </div>
-        </section>
-    </footer>
+	<!-- Services Section -->
+	<section id="services" class="content-section py-5 bg-light">
+		<div class="container">
+			<h1 class="section-title text-center mb-5">Our Services</h1>
+			<div class="row text-center">
+				<div class="col-md-4 mb-4 service-item">
+					<img src="images/services.jpg" alt="Expense Tracking"
+						class="img-fluid service-img">
+					<h3>Expense Tracking</h3>
+					<p>Track all your expenses and stay on top of your financial
+						health.</p>
+				</div>
+				<div class="col-md-4 mb-4 service-item">
+					<img src="images/services.jpg" alt="Budget Analysis"
+						class="img-fluid service-img">
+					<h3>Budget Analysis</h3>
+					<p>Create budgets and analyze your spending to reach your
+						goals.</p>
+				</div>
+				<div class="col-md-4 mb-4 service-item">
+					<img src="images/services.jpg" alt="Financial Insights"
+						class="img-fluid service-img">
+					<h3>Financial Insights & Reports</h3>
+					<p>Get detailed insights and reports to understand your
+						financial habits.</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <!-- Scripts -->
-    <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+	<!-- FAQ Section -->
+	<section id="FAQ" class="content-section py-5"
+		style="background-color: #f8f9fa;">
+		<div class="container">
+			<h1 class="text-center mb-5"
+				style="font-size: 2.5rem; font-weight: 700; color: #333;">Frequently
+				Asked Questions</h1>
+			<div class="accordion" id="faqAccordion">
+
+				<!-- FAQ Item 1 -->
+				<div class="accordion-item mb-3">
+					<h2 class="accordion-header" id="headingOne">
+						<button class="accordion-button" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapseOne"
+							aria-expanded="true" aria-controls="collapseOne"
+							style="font-weight: bold; background-color: #007bff; color: #fff;">
+							What is an Expense Tracker?</button>
+					</h2>
+					<div id="collapseOne" class="accordion-collapse collapse show"
+						aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+						<div class="accordion-body"
+							style="background-color: #ffffff; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+							An Expense Tracker is a tool that helps you keep track of your
+							daily, weekly, or monthly expenses.</div>
+					</div>
+				</div>
+
+				<!-- FAQ Item 2 -->
+				<div class="accordion-item mb-3">
+					<h2 class="accordion-header" id="headingTwo">
+						<button class="accordion-button collapsed" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+							aria-expanded="false" aria-controls="collapseTwo"
+							style="font-weight: bold; background-color: #007bff; color: #fff;">
+							How do I sign up for an account?</button>
+					</h2>
+					<div id="collapseTwo" class="accordion-collapse collapse"
+						aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+						<div class="accordion-body"
+							style="background-color: #ffffff; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+							To sign up, click on the "Sign Up" button in the top-right corner
+							of the page.</div>
+					</div>
+				</div>
+
+				<!-- FAQ Item 3 -->
+				<div class="accordion-item">
+					<h2 class="accordion-header" id="headingThree">
+						<button class="accordion-button collapsed" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapseThree"
+							aria-expanded="false" aria-controls="collapseThree"
+							style="font-weight: bold; background-color: #007bff; color: #fff;">
+							Is my financial information secure?</button>
+					</h2>
+					<div id="collapseThree" class="accordion-collapse collapse"
+						aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+						<div class="accordion-body"
+							style="background-color: #ffffff; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+							Yes, we prioritize the security of your financial data using
+							industry-standard encryption.</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Newsletter Section -->
+	<section id="newsletter"
+		class="content-section py-5 bg-dark text-light text-center">
+		<div class="container">
+			<h2 style="font-size: 2rem; font-weight: 600;">Join Our
+				Newsletter</h2>
+			<p style="font-size: 1.1rem; margin-bottom: 20px;">Stay updated
+				with the latest insights and tools to manage your expenses better.</p>
+			<form
+				class="d-flex justify-content-center align-items-center flex-wrap"
+				role="form">
+				<input type="email" class="form-control w-50 me-2 mb-2"
+					style="min-width: 250px; border-radius: 25px;"
+					placeholder="Enter your email" required>
+				<button type="submit" class="btn btn-primary px-4 py-2"
+					style="border-radius: 25px;">Subscribe</button>
+			</form>
+		</div>
+	</section>
+
+	<footer class="bg-dark text-light text-center py-4">
+		<div class="container">
+			<p class="mb-2">&copy; 2023 Expense Tracker. All rights reserved.</p>
+			<div>
+				<a href="#" class="text-light me-3" style="text-decoration: none;">
+					<i class="bi bi-facebook"></i> Facebook
+				</a> <a href="#" class="text-light me-3" style="text-decoration: none;">
+					<i class="bi bi-twitter"></i> Twitter
+				</a> <a href="#" class="text-light" style="text-decoration: none;">
+					<i class="bi bi-instagram"></i> Instagram
+				</a>
+			</div>
+		</div>
+	</footer>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

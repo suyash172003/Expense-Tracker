@@ -27,7 +27,7 @@ public class LoginController {
 	public String loginPut(@ModelAttribute Login login) {
 		Register val=registering.findByEmail(login.getEmail());
 		if(val!=null&&val.getEmail().compareTo(login.getEmail())==0&&val.getPassword().compareTo(login.getPassword())==0) {
-			return "login_expense";
+			return "redirect:/expense";
 		}
 		else {
 			return "redirect:/login";
