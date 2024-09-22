@@ -1,25 +1,74 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Expense Tracker WebPage</title>
-<link href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" th:href="@{/css/login.css}"></link>
+    <title>Expense Tracker - Login</title>
+    <link href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <style>
+        /* Inline CSS improvements */
+        .login-container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .login-container h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-control {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+        }
+        .register-link {
+            display: block;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .register-link:hover {
+            text-decoration: underline;
+        }
+        /* Error message styling */
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="login-container">
         <h1>Login</h1>
-        <form action="#" th:action="@{/login}" th:object="${login}" method="post">
+        <form th:action="@{/login}" th:object="${login}" method="post">
             <div class="form-group">
                 <input type="email" id="email" placeholder="Email" class="form-control" th:field="*{email}" required>
             </div>
-
             <div class="form-group">
                 <input type="password" id="password" placeholder="Password" class="form-control" th:field="*{password}" required>
             </div>
+
+            <!-- Dynamic error message for invalid login -->
+            <div th:if="${errorMessage}" class="error-message">
+                <p th:text="${errorMessage}">Invalid credentials. Please try again!</p>
+            </div>
+
             <button type="submit" class="btn btn-primary">Login</button>
-            <a href="#" th:href="@{/register}" class="register-link">New to Expense Tracker? Register here</a>
+            <a th:href="@{/register}" class="register-link">New to Expense Tracker? Register here</a>
         </form>
     </div>
 </body>
-</html>
 </html>

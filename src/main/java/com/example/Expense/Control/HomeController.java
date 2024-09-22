@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.example.Expense.Model.Expense;
 import com.example.Expense.Repository.ExpenseRepository;
+import com.example.Expense.Repository.RegisterRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
@@ -19,6 +22,7 @@ public class HomeController {
 	
 	@Autowired
 	ExpenseRepository expenseRepo;
+	RegisterRepository registering;
 
 	@GetMapping("/expense")
 	public String expense() {
@@ -26,21 +30,23 @@ public class HomeController {
 	}
 	
 	@GetMapping("/logout")
-	public String logout() {
+	public String logout(HttpSession session) {
+		session.invalidate();
 		return "redirect:/expense";
 	}
 	
-	@GetMapping("/profile")
-	public String profile() {
-		return "profile";
-	}
+	
 	
 	@GetMapping("/dashboard")
-	public String about(Model model) {
-		List<Expense> exp = expenseRepo.findAll();
-		System.out.print(exp);
-		model.addAttribute("elist", exp);
-		return "dashboard";
+	public String about(Model model,HttpSession session) {
+		Long userId = (Long) session.getAttribute("userId");
+		if (userId != null) {
+			List<Expense> expenses = expenseRepo.findAllByUserId(userId);
+	        System.out.print(expenses);
+	        model.addAttribute("elist", expenses);
+	        return "dashboard";
+	    }
+		return "add";
 	}
 	
 	@GetMapping("/add")
@@ -50,8 +56,13 @@ public class HomeController {
 	}
 	
 	@PostMapping("/add")
-	public String addExpense(@ModelAttribute Expense expense) {
-		expenseRepo.save(expense);
+	public String addExpense(@ModelAttribute Expense expense,HttpSession session) {
+		Long userId = (Long) session.getAttribute("userId");
+		if (userId != null) {
+	        expense.setUserId(userId); 
+	        System.out.println(expense);
+	        expenseRepo.save(expense); 
+	    }
 		return "redirect:/dashboard";
 	}
 	

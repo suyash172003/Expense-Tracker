@@ -6,4 +6,5 @@ import com.example.Expense.Model.Register;
 
 public interface RegisterRepository extends JpaRepository<Register,Long>{
 		Register findByEmail(String email);
+		boolean existsByEmail(String email);
 }

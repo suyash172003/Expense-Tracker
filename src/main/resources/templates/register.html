@@ -1,15 +1,59 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Expense Tracker WebPage</title>
-<link href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" th:href="@{/css/register.css}">
+    <title>Expense Tracker - Sign Up</title>
+    <link href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    <style>
+        /* Inline CSS improvements */
+        .register-container {
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .register-container h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-control {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .btn-primary {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+        }
+        .register-link {
+            display: block;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .register-link:hover {
+            text-decoration: underline;
+        }
+        /* Error message styling */
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="register-container">
         <h1>Sign up</h1>
-        <form action="#" th:action="@{/register}" method="post" th:object="${register}">
+        <form th:action="@{/register}" method="post" th:object="${register}">
             <div class="form-group">
                 <input type="text" id="firstName" placeholder="First Name" class="form-control" th:field="*{firstName}" required>
             </div>
@@ -22,9 +66,15 @@
             <div class="form-group">
                 <input type="password" id="password" placeholder="Password" class="form-control" th:field="*{password}" required>
             </div>
+
+            <!-- Dynamic error message for existing user registration -->
+            <div th:if="${errorMessage}" class="error-message">
+                <p th:text="${errorMessage}">Already Registered with this information!!</p>
+            </div>
+
             <button class="btn btn-primary" type="submit">Submit</button>
         </form>
-        <a href="#" th:href="@{/login}" class="register-link">Already have an account? Login</a>
+        <a th:href="@{/login}" class="register-link">Already have an account? Login</a>
     </div>
 </body>
 </html>

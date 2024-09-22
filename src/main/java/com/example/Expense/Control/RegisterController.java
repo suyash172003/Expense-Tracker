@@ -21,7 +21,11 @@ public class RegisterController {
 		return "register";
 	}
 	@PostMapping("/register")
-	public String postRegister(@ModelAttribute Register register) {
+	public String postRegister(@ModelAttribute Register register,Model model) {
+		if(registering.existsByEmail(register.getEmail())) {
+			model.addAttribute("errorMessage", "Email already registered! Try logging in.");
+			return "register";
+		}
 		registering.save(register);
 		return "redirect:/login";
 	}

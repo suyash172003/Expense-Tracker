@@ -9,44 +9,96 @@
 </head>
 <body>
     <nav class="navbar">
-        <h1>Expense Tracker</h1>
+        <div class="navbar-brand">
+            <h1>Expense Tracker</h1>
+        </div>
         <div class="navbar-links">
-            <a th:href="@{/dashboard}">Dashboard</a>
-            <a href="#">Categories</a>
-            <a href="#">Support</a>
-            <a href="#">Reports</a>
-            <a th:href="@{/expense}">Logout</a>
+            <a th:href="@{/profile}" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+            <a th:href="@{/dashboard}" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a th:href="@{/categories}" class="nav-link"><i class="fas fa-tags"></i> Categories</a>
+            <a th:href="@{/support}" class="nav-link"><i class="fas fa-life-ring"></i> Support</a>
+            <a th:href="@{/reports}" class="nav-link"><i class="fas fa-chart-line"></i> Reports</a>
+            <a th:href="@{/logout}" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
     </nav>
 
-    <div class="profile-container">
-        <div class="profile-card">
-            <div class="profile-image-container">
-                <img class="profile-image" src="images/profile.jpg" alt="Profile Picture">
-            </div>
-            <div class="profile-details">
-                <h1>John Doe</h1>
-                <ul>
-                    <li><strong>Email:</strong> john.doe@example.com</li>
-                    <li><strong>Profession:</strong> Software Developer</li>
-                    <li><strong>Mobile:</strong> 123-456-7890</li>
-                </ul>
-                <h2>About You</h2>
-                <p>I am a passionate Software Developer who tracks my expenditure.</p>
-                <h2>Contact Links</h2>
-                <div class="contact-links">
-                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-                    <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+    <div class="main-container">
+        <div class="profile-section">
+            <div class="profile-card">
+                <div class="profile-image-container">
+                    <img class="profile-image" src="images/profile.png" alt="Profile Picture">
                 </div>
-                <h2>Hobbies</h2>
-                <p>Reading, Traveling, Coding</p>
+                <div class="profile-details">
+                    <h1 class="profile-name" th:text="${profileName}">John Doe</h1>
+                    <ul class="profile-info">
+                        <li><strong>Email:</strong> <span th:text="${profileEmail}">johndoe@example.com</span></li>
+                        <li><strong>Mobile:</strong> <span th:text="${profileMobile}">123-456-7890</span></li>
+                    </ul>
+                </div>
+                <button class="edit-profile-btn">Edit Profile</button>
+            </div>
+        </div>
+
+        <div class="overview-section">
+            <div class="expense-cards">
+                <div class="expense-card monthly">
+                    <h2>Monthly Expenses</h2>
+                    <span class="expense-amount">$50,000</span>
+                </div>
+                <div class="expense-card weekly">
+                    <h2>Weekly Expenses</h2>
+                    <span class="expense-amount">$500</span>
+                </div>
+                <div class="expense-card yearly">
+                    <h2>Yearly Expenses</h2>
+                    <span class="expense-amount">$500,000</span>
+                </div>
+            </div>
+
+            <div class="progress-overview">
+                <h3>Progress Overview</h3>
+                <div class="progress-item">
+                    <span class="progress-label">Monthly Progress:</span>
+                    <span class="progress-value" th:text="${monthlyProgress} + '%'"></span>
+                    <div class="progress-bar">
+                        <span th:style="'width:' + ${monthlyProgress} + '%'" class="progress"></span>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <span class="progress-label">Weekly Progress:</span>
+                    <span class="progress-value" th:text="${weeklyProgress} + '%'"></span>
+                    <div class="progress-bar">
+                        <span th:style="'width:' + ${weeklyProgress} + '%'" class="progress"></span>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <span class="progress-label">Daily Progress:</span>
+                    <span class="progress-value" th:text="${dailyProgress} + '%'"></span>
+                    <div class="progress-bar">
+                        <span th:style="'width:' + ${dailyProgress} + '%'" class="progress"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="notes-section">
+                <h3>Your Notes</h3>
+                <textarea rows="4" placeholder="Add your thoughts here..."></textarea>
+                <button class="save-notes-btn">Save Notes</button>
+            </div>
+
+            <div class="notification">
+                <p>Budget Alert: You have reached 75% of your monthly budget!</p>
             </div>
         </div>
     </div>
 
     <footer class="footer">
-        <div>Copyright &copy; 2024</div>
+        <div>Copyright &copy; 2024 Expense Tracker</div>
+        <div>
+            <a href="/terms">Terms of Service</a> | 
+            <a href="/privacy">Privacy Policy</a> | 
+            <a href="/contact">Contact Us</a>
+        </div>
     </footer>
 </body>
 </html>
