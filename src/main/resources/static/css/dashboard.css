@@ -14,9 +14,13 @@ body {
 }
 
 .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: linear-gradient(90deg, #4a90e2, #50e3c2);
     color: white;
     padding: 15px 30px;
+    border-radius: 0 0 10px 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -28,13 +32,15 @@ body {
 
 .navbar-links {
     display: flex;
-    gap: 20px;
 }
 
 .navbar-links a {
     color: white;
+    margin-left: 20px;
     text-decoration: none;
     font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 5px;
     transition: background 0.3s, transform 0.3s;
 }
 
@@ -45,19 +51,22 @@ body {
 
 .content {
     flex-grow: 1;
+    padding: 20px; /* Added padding for better spacing */
 }
 
 .heading {
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .table-responsive {
     margin-top: 20px;
+    overflow-x: auto; /* Allows horizontal scrolling on small devices */
 }
 
 .table {
-    width: 100%; /* Full width */
-    border-collapse: collapse; /* Collapses borders for a cleaner look */
+    width: 100%;
+    border-collapse: collapse;
     background-color: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -68,9 +77,9 @@ body {
 }
 
 .table th, .table td {
-    padding: 15px; /* Increased for better spacing */
+    padding: 15px;
     text-align: center;
-    border: 1px solid #ddd; /* Optional: border for visual separation */
+    border: 1px solid #ddd;
 }
 
 .table th {
@@ -81,11 +90,11 @@ body {
 .button-container {
     display: flex;
     gap: 10px;
-    justify-content: center; /* Aligns buttons to the right */
+    justify-content: center;
 }
 
 .btn {
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .btn-danger:hover {
@@ -120,12 +129,16 @@ footer {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .navbar {
         text-align: center;
     }
-    
+
     .content {
         padding: 0 15px;
+    }
+
+    .table th, .table td {
+        padding: 10px; /* Adjusted padding for smaller screens */
     }
 }

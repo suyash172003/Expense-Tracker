@@ -42,8 +42,11 @@ public class HomeController {
 		Long userId = (Long) session.getAttribute("userId");
 		if (userId != null) {
 			List<Expense> expenses = expenseRepo.findAllByUserId(userId);
-	        System.out.print(expenses);
+			double sum=0;
+	        for(int i=0;i<expenses.size();i++)
+	        	sum+=expenses.get(i).getAmount();
 	        model.addAttribute("elist", expenses);
+	        model.addAttribute("totalAmount", sum);
 	        return "dashboard";
 	    }
 		return "add";
@@ -60,7 +63,6 @@ public class HomeController {
 		Long userId = (Long) session.getAttribute("userId");
 		if (userId != null) {
 	        expense.setUserId(userId); 
-	        System.out.println(expense);
 	        expenseRepo.save(expense); 
 	    }
 		return "redirect:/dashboard";

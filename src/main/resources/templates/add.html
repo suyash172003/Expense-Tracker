@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Expenses</title>
-    <link href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/css/add.css}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Expenses</title>
+<link href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/add.css}">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="navbar-brand">
-        <h1>Expense Tracker</h1>
-    </div>
-    <div class="navbar-links">
-        <a th:href="@{/profile}" class="nav-link">Profile</a>
-        <a th:href="@{/dashboard}" class="nav-link">Dashboard</a>
-        <a href="#" class="nav-link">Categories</a>
-        <a href="#" class="nav-link">Support</a>
-        <a href="#" class="nav-link">Reports</a>
-        <a th:href="@{/expense}" class="nav-link">Logout</a>
-    </div>
-</nav>
+	 <nav class="navbar">
+        <div class="navbar-brand">
+            <h1>Expense Tracker</h1>
+        </div>
+        <div class="navbar-links">
+            <a th:href="@{/profile}" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+            <a th:href="@{/dashboard}" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a th:href="@{/logout}" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </nav>
 
-<h2 class="form-heading">Add Your Expense!</h2>
-<form class="expense-form" th:action="@{/add}" th:object="${expense}" method="post">
-    <div class="form-group">
-        <label for="amount">Amount</label>
-        <input type="number" id="amount" name="amount" th:field="*{amount}" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label for="category">Category</label>
-        <input type="text" id="category" name="category" th:field="*{category}" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label for="date">Date</label>
-        <input type="date" id="date" name="date" th:field="*{date}" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label for="description">Description</label>
-        <input type="text" id="description" name="description" th:field="*{description}" class="form-control" required>
-    </div>
-    <button type="submit" title="Submit" class="btn btn-primary">Submit</button>
-</form>
 
-<footer class="footer">
-    <div>Copyright &copy; 2024</div>
-</footer>
+	<h2 class="form-heading">Add Your Expense!</h2>
+	<form class="expense-form" th:action="@{/add}" method="post">
+		<div class="form-group">
+			<label for="amount">Amount</label> <input type="number" id="amount"
+				name="amount" class="form-control" required>
+		</div>
+		<div class="form-group">
+			<label for="category">Category</label> <select class="form-control"
+				name="category" id="category">
+				<option value="" selected>--- NO SELECTION ---</option>
+				<option value="Food">Food</option>
+				<option value="Travel">Travel</option>
+				<option value="HealthCare">HealthCare</option>
+				<option value="Shopping">Shopping</option>
+				<option value="HomeAppliances">Home Appliances</option>
+				<option value="Other">Others</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="date">Date</label> <input type="date" id="date"
+				name="date" class="form-control" required>
+		</div>
+		<div class="form-group">
+			<label for="description">Description</label> <input type="text"
+				id="description" name="description" 
+				class="form-control" required>
+		</div>
+		<button type="submit" title="Submit" class="btn btn-primary">Submit</button>
+	</form>
+
+	<footer class="footer">
+		<div>Copyright &copy; 2024</div>
+	</footer>
 
 </body>
 </html>
