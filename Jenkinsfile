@@ -25,7 +25,7 @@ pipeline{
         stage("Build Docker Image and push"){
             steps {
                sh '''
-                docker build -t suyash172003/expense-tracker:v.0.${BUILD_IMAGE_TAG}
+                docker build -t suyash172003/expense-tracker:v.0.${BUILD_IMAGE_TAG} .
                 docker push suyash172003/expense-tracker:v.0.${BUILD_IMAGE_TAG}
                '''
             }
