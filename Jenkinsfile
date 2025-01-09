@@ -7,8 +7,9 @@ pipeline{
         stage("Checkout"){
             steps {
                 sh '''
-                echo "docker --version"
-                echo "ls -l /var/run/docker.sock"
+                sudo usermod -aG docker jenkins
+                sudo chmod 777 /var/run/docker.sock
+                sudo ls -l /var/run/docker.sock
                 '''
             }
         }
