@@ -1,29 +1,33 @@
-pipeline {
-    agent any
-    tools {
-        maven 'Maven 3.9' // Name must match the Maven installation name in Jenkins configuration
+pipeline{
+    agent any;
+    variable {
+        BUILD_IMAGE_TAG = "${BUILD_NUMBER}"
     }
-
-    stages {
-        stage('Cleanup') {
+    stages{
+        stage("Checkout"){
             steps {
-                script {
-                    def dirPath = 'C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Expense Tracker\\Expense-Tracker'
-                    def command = "if exist \"${dirPath}\" (rd /s /q \"${dirPath}\") else (echo \"Directory not found\")"
-                    bat command
-                }
+                sh '''
+                echo "docker --version"
+                echo "ls -l /var/run/docker.sock"
+                '''
             }
         }
 
-        stage('Clone Repository') {
+        stage("Build"){
             steps {
-                bat 'git clone https://github.com/suyash172003/Expense-Tracker.git'
+                sh '''
+                mvn clean
+                mvn install
+                '''
             }
         }
 
-        stage('Build') {
+        stage("Build Docker Image and push"){
             steps {
-                bat 'mvn clean install'
+               sh '''
+                docker build -t suyash172003/expense-tracker:v.0.${BUILD_IMAGE_TAG}
+                docker push suyash172003/expense-tracker:v.0.${BUILD_IMAGE_TAG}
+               '''
             }
         }
     }
